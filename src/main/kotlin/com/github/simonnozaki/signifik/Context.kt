@@ -1,14 +1,12 @@
 package com.github.simonnozaki.signifik
 
-import java.util.StringTokenizer
-
 /**
  * Lexer
  */
 class Context(
     text: String
 ) {
-    private val stringTokenizer: StringTokenizer
+    private val textTokenizer: TextTokenizer
 
     /**
      * Current token string literal
@@ -26,7 +24,9 @@ class Context(
     private var currentTokenIndex = 0
 
     init {
-        stringTokenizer = StringTokenizer(text)
+        textTokenizer = TextTokenizer(text)
+            .tokenize(Regex("\\s"))
+            .skipSpace()
         val current = nextToken()
         currentTokenLiteral = current.value
     }
@@ -45,8 +45,8 @@ class Context(
      */
     fun nextToken(): Token {
         println("current ==> $currentTokenLiteral")
-        if (this.stringTokenizer.hasMoreTokens()) {
-            this.currentTokenLiteral = this.stringTokenizer.nextToken()
+        if (this.textTokenizer.hasMoreTokens()) {
+            this.currentTokenLiteral = this.textTokenizer.nextToken()
         }
         val initial = this.currentTokenLiteral[0]
 
