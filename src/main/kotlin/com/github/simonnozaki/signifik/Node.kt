@@ -83,7 +83,7 @@ sealed class Node {
                     context.skipToken("end")
                     break
                 }
-                if (context.getCurrentToken().tokenType == TokenType.END) {
+                if (context.getCurrentToken().tokenType == TokenType.REPEAT) {
                     val expressions = RepeatCommandNode().parse(context)
                     commands.addAll(expressions)
                 } else {
