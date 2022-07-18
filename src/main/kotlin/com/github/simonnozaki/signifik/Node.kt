@@ -1,7 +1,6 @@
-package com.github.simonnozaki.interpreter
+package com.github.simonnozaki.signifik
 
-import com.github.simonnozaki.interpreter.Expression.IntegerLiteral
-import com.github.simonnozaki.interpreter.Expression.PrimitiveLiteral
+import com.github.simonnozaki.signifik.Expression.IntegerLiteral
 
 /**
  * Root node of parsing
@@ -54,9 +53,6 @@ sealed class Node {
                 val current = context.getCurrentToken()
 
                 Expression.BinaryExpression(operator, IntegerLiteral.of(previous.value), IntegerLiteral.of(current.value))
-            } else if (currentToken.tokenType == TokenType.REPEAT) {
-                context.skipToken(name)
-                PrimitiveLiteral(currentToken.value)
             } else {
                 context.skipToken(name)
                 IntegerLiteral.of(currentToken.value)

@@ -1,3 +1,3 @@
 
-rootProject.name = "interperter"
+rootProject.name = "signifik"
 

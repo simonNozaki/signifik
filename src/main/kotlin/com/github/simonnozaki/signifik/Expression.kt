@@ -1,4 +1,4 @@
-package com.github.simonnozaki.interpreter
+package com.github.simonnozaki.signifik
 
 /**
  * Expression.

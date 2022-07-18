@@ -1,7 +1,10 @@
-package com.github.simonnozaki.interpreter
+package com.github.simonnozaki.signifik
 
 import java.util.StringTokenizer
 
+/**
+ * Lexer
+ */
 class Context(
     text: String
 ) {

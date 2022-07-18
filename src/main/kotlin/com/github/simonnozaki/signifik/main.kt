@@ -1,4 +1,4 @@
-package com.github.simonnozaki.interpreter
+package com.github.simonnozaki.signifik
 
 val source = """
     program
@@ -14,4 +14,9 @@ fun main() {
 
     val expressions = Parser().parse(context)
     println("node = $expressions")
+
+    for (expression in expressions) {
+        val result = Evaluator().evaluate(expression)
+        println("result = $result")
+    }
 }

@@ -1,4 +1,4 @@
-package com.github.simonnozaki.interpreter
+package com.github.simonnozaki.signifik
 
 /**
  * Token type enum
@@ -7,11 +7,17 @@ enum class TokenType(
     val value: String
 ) {
     DIGIT(""),
+    IDENTIFIER(""),
 
     // control
     PROGRAM("program"),
     REPEAT("repeat"),
     END("end"),
+    ASSIGNMENT("="),
+
+    // keywords
+    EOT(""),
+    VARIABLE(""),
 
     PLUS("+"),
     MINUS("-"),
@@ -42,5 +48,10 @@ enum class TokenType(
             DIVISION -> true
             else -> false
         }
+
+        /**
+         * Keywords map: keyword literal -> related token
+         */
+        val keywords: Map<String, TokenType> = listOf(VARIABLE).associateBy { it.value }
     }
 }
